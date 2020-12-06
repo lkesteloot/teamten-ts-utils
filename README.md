@@ -1,4 +1,4 @@
-# teamten-utils
+# teamten-ts-utils
 
 Set of utility functions in TypeScript.
 

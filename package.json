@@ -1,10 +1,10 @@
 {
-  "name": "teamten-utils",
+  "name": "teamten-ts-utils",
   "version": "1.0.0",
   "description": "Utility functions in TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "https://github.com/lkesteloot/teamten-utils",
+  "repository": "https://github.com/lkesteloot/teamten-ts-utils",
   "author": "Lawrence Kesteloot <lk@teamten.com> (https://www.teamten.com/lawrence/)",
   "license": "MIT",
   "scripts": {
