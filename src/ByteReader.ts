@@ -23,6 +23,17 @@ export class ByteReader {
     }
 
     /**
+     * Return the next byte, not advancing the stream.
+     *
+     * @param ahead how many bytes ahead to peek, or 0 for the next byte
+     * to be returned by {@link #read()}.
+     */
+    public peek(ahead: number = 0): number {
+        const pos = this.pos + ahead;
+        return pos < this.b.length ? this.b[pos] : EOF;
+    }
+
+    /**
      * Return the byte address of the next byte to be read.
      */
     public addr(): number {

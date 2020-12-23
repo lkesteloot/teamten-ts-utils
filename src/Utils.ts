@@ -2,7 +2,7 @@
 /**
  * Remove all children from element.
  */
-export function clearElement(e: HTMLElement): void {
+export function clearElement(e: Element): void {
     while (e.firstChild) {
         e.removeChild(e.firstChild);
     }
