@@ -1,6 +1,6 @@
 {
   "name": "teamten-ts-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utility functions in TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
