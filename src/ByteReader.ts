@@ -62,10 +62,12 @@ export class ByteReader {
     }
 
     /**
-     * Reads an ASCII string from the stream. If the returned string is shorter than "length", then we hit EOF.
+     * Reads a UTF-8 string from the stream. If the returned string is shorter than "length", then we hit EOF.
      */
     public readString(length: number): string {
-        return new TextDecoder("ascii").decode(this.readBytes(length));
+        // We used to specify "ascii" for the decoder, but Node doesn't support it, and in any
+        // case UTF-8 is a super set, so anything that worked before should work now.
+        return new TextDecoder().decode(this.readBytes(length));
     }
 
     /**

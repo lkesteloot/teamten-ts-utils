@@ -29,15 +29,30 @@ export function withCommas(n: number | string): string {
 /**
  * Concatenate a list of byte arrays into one.
  */
-export function concatByteArrays(samplesList: Uint8Array[]): Uint8Array {
-    const length = samplesList.reduce((sum, samples) => sum + samples.length, 0);
+export function concatByteArrays(items: Uint8Array[]): Uint8Array {
+    const length = items.reduce((sum, samples) => sum + samples.length, 0);
     const allBytes = new Uint8Array(length);
 
     let offset = 0;
-    for (const samples of samplesList) {
-        allBytes.set(samples, offset);
-        offset += samples.length;
+    for (const item of items) {
+        allBytes.set(item, offset);
+        offset += item.length;
     }
 
     return allBytes;
+}
+
+/**
+ * Start a timer, and return a function that will evaluate to how many milliseconds
+ * the timer has been running. Calling the function restarts the timer.
+ */
+export function startTimer(): () => number {
+    let timerStart = Date.now();
+
+    return () => {
+        const now = Date.now();
+        const elapsed = now - timerStart;
+        timerStart = now;
+        return elapsed;
+    };
 }
