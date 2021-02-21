@@ -63,11 +63,12 @@ export class ByteReader {
 
     /**
      * Reads a UTF-8 string from the stream. If the returned string is shorter than "length", then we hit EOF.
+     * Nul bytes are replaced with spaces.
      */
     public readString(length: number): string {
         // We used to specify "ascii" for the decoder, but Node doesn't support it, and in any
         // case UTF-8 is a super set, so anything that worked before should work now.
-        return new TextDecoder().decode(this.readBytes(length));
+        return new TextDecoder().decode(this.readBytes(length)).replace(/\u0000/g, " ");
     }
 
     /**
